@@ -463,6 +463,22 @@ public class Table
         out.print ("|-" + "---------------".repeat (attribute.length));
         out.println ("-|");
     } // show
-    
+
+    /************************************************************************************
+     * Compare two tuples to see if they match (all columns must match).
+     *
+     * @param t1  first tuple
+     * @param t2  second tuple
+     * @return  true if all columns are equal, false otherwise
+     */
+    private boolean tupleCompare (Comparable [] t1, Comparable [] t2)
+    {
+        if (t1.length != t2.length) return false;
+        for (int i = 0; i < t1.length; i++) {
+            if (!t1[i].equals (t2[i])) return false;
+        } // for
+        return true;
+    } // tupleCompare
+
 } // Table
 
